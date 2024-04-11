@@ -1,0 +1,133 @@
+Model,transformer name,Features,exp name in drive,CV Type,EPOCHS,BATCH SIZE,max_length,FOLD 1,FOLD 2,FOLD 3,FOLD 4,Wording RMSE,Conent RMSE,CV,LB,Wording RMSE,Conent RMSE,CV,LB
+XGBResgressor,,RoBERTa Embeddings,-,KFOLD=5,-,,,-,-,-,-,,,,,0.65,0.472,0.561,0.742
+Gradient Boosting Regressor,,RoBERTa Embeddings,-,KFOLD=5,-,,,-,-,-,-,,,,,0.63,0.458,0.544,0.685
+XGBResgressor,,Summaries RoBERTa Embeddings,-,GroupKFold,-,,,-,-,-,-,,,,,0.855,0.694,0.774,0.742
+Gradient Boosting Regressor,,Summaries RoBERTa Embeddings,-,GroupKFold,-,,,-,-,-,-,,,,,0.8,0.661,0.732,0.685
+1 Model with 2 Linear Layers with 2 outputs,,Summaries RoBERTa Embeddings,-,GroupKFold,-,,,-,-,-,-,,,,,0.778,0.633,0.706,0.639
+2 Model with 2 Linear Layers with 1 output,,Summaries RoBERTa Embeddings,-,GroupKFold,-,,,-,-,-,-,,,,,0.778,0.649,0.713,?
+1 Model with 2 Linear Layers with 2 outputs,,Summaries deBERTa-v3-base Embeddings,-,GroupKFold,30,16,,"MCRMSE: 0.626
+Wording: 0.771
+Content: 0.482","MCRMSE: 0.719
+Wording: 0.893
+Content: 0.544","MCRMSE: 0.559
+Wording: 0.602
+Content: 0.515","MCRMSE: 0.748
+Wording: 0.812
+Content: 0.685",,,,,0.772,0.544,0.658,0.586
+Gradient Boosting Regressor,,NLP Features,-,GroupKFold,-,-,-,,,,,,,,,,,,0.546
+LGBM,,NLP Features,-,GroupKFold,-,-,-,"MCRMSE: 0.508
+Wording: 0.559
+Content: 0.456","MCRMSE: 0.784
+Wording: 0.976
+Content: 0.593","MCRMSE: 0.506
+Wording: 0.555
+Content: 0.456","MCRMSE: 0.646
+Wording: 0.767
+Content: 0.524",,,,,0.714,0.507,0.611,0.57
+1 Model with 2 Linear Layers with 2 outputs,,"deBERTa-v3-base Embeddings
+prompt question + title + Summaries",-,GroupKFold,30,16,512,,,,,,,,,,,,0.553
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768",,Summaries,-,GroupKFold,5,8,512,"MCRMSE: 0.532
+Wording: 0.597
+Content: 0.467","MCRMSE: 0.678
+Wording: 0.847
+Content: 0.511","MCRMSE: 0.602
+Wording: 0.55
+Content: 0.653","MCRMSE: 0.795
+Wording: 0.764
+Content: 0.827",,,,,0.689,0.614,0.651,0.544
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768",,Summaries,-,GroupKFold,5,8,1024,"MCRMSE: 0.559
+Wording: 0.577
+Content: 0.541","MCRMSE: 0.664
+Wording: 0.8
+Content: 0.528","MCRMSE: 0.5
+Wording: 0.542
+Content: 0.459","MCRMSE: 0.804
+Wording: 0.734
+Content: 0.875",,,,,0.663,0.601,0.632,0.525
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768",,Summaries,-,GroupKFold,3,8,1024,,,,,,,,,,,,0.501
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768 + LGBM",,"Summaries(deBERTa-v3) + 
+NLP features(LGBM)",-,GroupKFold,5,8,512,"MCRMSE: 0.486
+Wording: 0.535
+Content: 0.437","MCRMSE: 0.655
+Wording: 0.82
+Content: 0.489","MCRMSE: 0.503
+Wording: 0.512
+Content: 0.493","MCRMSE: 0.682
+Wording: 0.729
+Content: 0.636",,,,,0.649,0.514,0.581,0.495
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768 + LGBM",,"Summaries(deBERTa-v3) + 
+NLP features(LGBM)",-,GroupKFold,5,8,1024,"MCRMSE: 0.5
+Wording: 0.526
+Content: 0.473","MCRMSE: 0.635
+Wording: 0.79
+Content: 0.481","MCRMSE: 0.466
+Wording: 0.5
+Content: 0.432","MCRMSE: 0.684
+Wording: 0.715
+Content: 0.653",,,,,0.633,0.51,0.571,0.48
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768 + Gradient Boosting",,"Summaries(deBERTa-v3) + 
+NLP features(LGBM)",-,GroupKFold,5,8,1024,"MCRMSE: 0.504
+Wording: 0.531
+Content: 0.476","MCRMSE: 0.631
+Wording: 0.777
+Content: 0.485","MCRMSE: 0.464
+Wording: 0.501
+Content: 0.428","MCRMSE: 0.725
+Wording: 0.767
+Content: 0.682",,,,,0.644,0.518,0.581,
+"deBERTa-v3-base Embeddings +
+2 Fully conected 768X768",,Prompt Question + Title + Summaries,-,GroupKFold,5,16,1024,,,,,,,,,,,,0.534
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + Autocorect 3.1 +
+SpellChecker",,"Prompt Question + Title + Summaries(fixed) + 
+NLP features-2 (LGBM)",-,GroupKFold,5,12,512,,,,,,,,,0.566*,0.442*,0.504*,0.451*
+Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker,,"Prompt Question + Title + Summaries + 
+NLP features-2 (LGBM)",-,GroupKFold,10,12,512,,,,,,,,,0.614,0.455,0.535,0.456
+Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker,,"Prompt Question + Title + Summaries + 
+NLP features-2 (LGBM)",-,GroupKFold,5,12,512,,,,,,,,,0.601,0.48,0.54,0.475
+Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker,,"Prompt Question + Title + Summaries + 
+NLP features-1+2 (LGBM)",-,GroupKFold,10,12,512,,,,,,,,,0.579,0.437,0.508,0.448
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker + 
+Autocorrect 1.1.0",,"Prompt Question + Title + Fixed Summaries + 
+NLP features-1+2 ",-,GroupKFold,5,12,512,,,,,,,,,0.57,0.447,0.509,0.463
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker + 
+Autocorrect 1.1.0",,"Prompt Question + Title + Fixed Summaries + 
+NLP features-1+2 ",-,GroupKFold,10,12,512,,,,,,,,,0.572,0.445,0.508,0.455
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat",,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",-,GroupKFold,10,12,512,,,,,,,,,0.582,0.446,0.514,0.45
+"Tuned deBERTa-v3-base + LGBM (ensemble) + SpellChecker + 
+Textstat",,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",-,GroupKFold,10,12,512,,,,,,,,,0.595,0.446,0.521,
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat",,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",-,GroupKFold,15,12,512,,,,,,,,,,,,
+"Tuned deBERTa-v3-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT",,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",-,GroupKFold,10,12,512,,,,,,,,,0.569,0.446,0.508,0.451
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",electra-base-discriminator,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,0.662,0.479,0.57,,0.591,0.447,0.519,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",roberta-base-squad2,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,0.7,0.52,0.61,,0.596,0.468,0.532,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",albert-base-v2,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,0.672,0.48,0.576,,0.598,0.445,0.521,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",deberta-v3-base,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,,,,,,,,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",xlm-roberta-base,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,,,,,,,,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",funnel-base-medium,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,,,,,,,,
+"electra-base -> LGBM (no ensemble) + SpellChecker + 
+Textstat + NO DROPUT+MODIFIED MCRMSE LOSS",all-mpnet-base-v2,"Prompt Question + Title + Summaries + 
+NLP features-1+2+textstat",exp1,GroupKFold,5,12,512,,,,,0.65,,,,0.572,0.446,0.509,
