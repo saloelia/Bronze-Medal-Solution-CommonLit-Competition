@@ -4,8 +4,8 @@ Thie repository provides my solution for the Kaggle Competition - CommonLit - Ev
 My solution was based on combining an ensemble of transformers (deberta-v3-large, XLM-roberta-large, all-mpnet-base, funnel-medium-base) which were trained on the summaries dataset, alongside training an LGBM model on a constructed dataset of NLP engineered features.  Out of 2063 participants, I achieved the 155th position with a RMSE score of 0.48121.
 
 Notebooks descriptions:
+- CommonLit - Sheet1.csv - Table results of all experiments and training I performed.
 - Augmentation_CommonLit - Used for creating augmentation for the data (did not improved the results however).
-- CommonLit.xlsx - Table results of all experiments and training I performed.
 - Inference_CommonLit - Used for evaluating the Transformer with the LGBM after training.
 - Meassure_CV - Used for performing Cross Validation.
 - commonlit_ridge_ensebmle - Used for evaluate variety of ensemble methods (the best one was the regular ensebmle).
