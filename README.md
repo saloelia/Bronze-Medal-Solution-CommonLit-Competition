@@ -11,4 +11,4 @@ Notebooks descriptions:
 - commonlit_ridge_ensebmle - Used for evaluate variety of ensemble methods (the best one was the regular ensebmle).
 - final-inference-ensemble - The final notebook submitted to the Kaggle competition.
 - train_debertav3_CV - Used for both training Transformers and Evaluate them with the LGBM using Cross Validation.
-- 
+- training_transformer_CV - Used for training Transformers only and save their results and weigths.
